@@ -20,4 +20,22 @@ class DB extends mysqli
                     . mysqli_connect_error());
         }
     }
+
+    public function getAllProducts() {
+        $results = $this->query("SELECT * FROM products");
+        $set = $this->formatResults($results);
+        return $set;
+    }
+
+    public function getProduct($id) {
+        $results = $this->query("SELECT * FROM products WHERE id = " . $id . ";");
+        $set = $this->formatResults($results);
+        return $set[0];
+    }
+
+    public function formatResults($results) {
+        for ($set = array (); $row = $results->fetch_assoc(); $set[] = $row);
+        $results->free();
+        return $set;
+    }
 }
