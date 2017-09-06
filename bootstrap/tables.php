@@ -8,8 +8,12 @@ $products = "CREATE TABLE IF NOT EXISTS products(
     description longtext NOT NULL,
     stock INT(5) NOT NULL DEFAULT 0,
     published DATETIME
-)";
+);";
 
-if ($DB->query($products) !== TRUE) {
-    var_dump('Products table was NOT created');
+if ($DB->query('SELECT 1 FROM `products`;') == false) 
+{
+    if ($DB->query($products) !== TRUE) 
+    {
+        var_dump('Products table was NOT created');
+    }
 }
