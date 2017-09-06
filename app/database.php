@@ -36,8 +36,11 @@ class DB extends mysqli
     public function getCartItems() {
         $ids = implode(',', array_map('intval', $_SESSION['cart']));
         $results = $this->query("SELECT * FROM products WHERE id IN (" . $ids . ");");
-        $set = $this->formatResults($results);
-        return $set;
+        if ($results != false) {
+            $set = $this->formatResults($results);
+            return $set;
+        }
+        return array();
     }
 
     public function formatResults($results) {

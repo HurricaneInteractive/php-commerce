@@ -1,6 +1,6 @@
 <?php require '../app/views/header.php'; ?>
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
                 <table class="table table-striped">

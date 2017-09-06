@@ -1,7 +1,12 @@
 <?php
 
-    session_start();
-    $_SESSION['cart'] = array('2', '1');
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (empty($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
 
     require_once '../config.php';
     require_once 'database.php';
