@@ -14,7 +14,9 @@
                     success: function(response) {
                         console.log(response);
                         var sess = response.session;
-                        $('#cart-count').text(sess.length);
+                        $('#cart-count').text(sess);
+                        var successMsg = '<div class="alert alert-success" role="alert">Item was added to the cart! <a href="/cart">View cart</a></div>';
+                        $('#messages').html(successMsg);
                     },
                     error: function(error) {
                         console.log(error);

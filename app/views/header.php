@@ -40,3 +40,5 @@
                 </div>
             </div>
         </nav>
+        <div id="messages">
+        </div>
