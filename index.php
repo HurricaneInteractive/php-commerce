@@ -9,9 +9,24 @@
     </head>
     <body>
         <?php
-            // Dump the server status
-            $status = $DB->stat; 
-            var_dump($status);
+            $g = $DB->getAllProducts();
+            var_dump($g);
         ?>
+        <div>
+            <?php 
+                if (!empty($g)) {
+                    foreach($g as $product) {
+                        ?>
+                            <div>
+                                <h3><?php echo $product['name']; ?></h3>
+                                <p><?php echo $product['description']; ?></p>
+                                <small><?php echo $product['cost']; ?></small>
+                                <a href="/add-to-cart/<?php echo $product['id']; ?>">Add to cart</a>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
+        </div>
     </body>
 </html>
