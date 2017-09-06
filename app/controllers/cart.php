@@ -22,7 +22,7 @@ class Cart extends Controller
         
         echo json_encode(array(
             'success' => 'true',
-            'session' => $_SESSION['cart']
+            'session' => count($_SESSION['cart'])
         ));
     }
 }
