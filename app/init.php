@@ -8,8 +8,11 @@
         $_SESSION['cart'] = array();
     }
 
+    require_once '../vendor/autoload.php';
+
     require_once '../config.php';
     require_once 'database.php';
+    
     $DB = new DB(HOST, USERNAME, PASSWORD, DB_NAME);
     $GLOBALS['DB'] = $DB;
 

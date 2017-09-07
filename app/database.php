@@ -1,5 +1,7 @@
 <?php
 
+require_once '../app/models/product.php';
+
 // Create a DB class which extends the mysqli PHP class
 class DB extends mysqli
 {
@@ -34,11 +36,26 @@ class DB extends mysqli
     }
     
     public function getCartItems() {
-        $ids = implode(',', array_map('intval', $_SESSION['cart']));
+        $allID = array();
+        foreach($_SESSION['cart'] as $item) {
+            $allID[] = $item['id'];
+        }
+
+        $ids = implode(',', $allID);
         $results = $this->query("SELECT * FROM products WHERE id IN (" . $ids . ");");
         if ($results != false) {
             $set = $this->formatResults($results);
-            return $set;
+            $cartItems = array();
+
+            foreach($set as $prod) {
+                $product = new Product($prod);
+                $key = array_search($product->get_id(), array_column($_SESSION['cart'], 'id'));
+                $quantity = $_SESSION['cart'][$key]['quantity'];
+                $product->set_cart_quantity($quantity);
+                $cartItems[] = $product;
+            }
+
+            return $cartItems;
         }
         return array();
     }
