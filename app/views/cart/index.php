@@ -13,13 +13,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $count = 1; foreach($data['cart'] as $product): ?>
+                        <?php 
+                            $count = 1; 
+                            foreach($data['cart'] as $product):
+                                $name = $product->get_name();
+                                $cost = $product->get_cost();
+                                $quantity = $product->get_cart_quantity();
+                        ?>
 
                             <tr>
                                 <th><?php echo $count; ?></th>
-                                <th><?php echo $product['name']; ?></th>
-                                <th><?php echo $product['cost']; ?></th>
-                                <th>1</th>
+                                <th><?php echo $name; ?></th>
+                                <th><?php echo $cost; ?></th>
+                                <th><?php echo $quantity; ?></th>
                             </tr>
 
                         <?php $count++; endforeach; ?>

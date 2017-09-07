@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-require '../app/models/product.php';
+require_once '../app/models/product.php';
 
 class Home extends Controller
 {

@@ -9,8 +9,8 @@
 
     <div class="container mt-3">
         <div class="row">
-            <div class="col-md-12">
-                <h1 class="mb-4">Browse Products</h1>
+            <div class="col-md-12 mb-4">
+                <h1>Browse Products <small class="text-muted">Results (<?php echo count($products); ?>)</small></h1>
             </div>
             <?php
                 if (!empty($products)) {
