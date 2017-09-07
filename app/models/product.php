@@ -5,6 +5,7 @@ class Product {
     private $name = '';
     private $description = '';
     private $cost = '';
+    private $cart_quantity = 1;
 
     public function __construct($productInfo = array()) {
         if (array_key_exists('id', $productInfo)) {
@@ -35,6 +36,14 @@ class Product {
 
     public function get_cost() {
         return $this->cost;
-    }    
+    }
+
+    public function set_cart_quantity($int) {
+        $this->cart_quantity = $int;
+    }
+
+    public function get_cart_quantity() {
+        return $this->cart_quantity;
+    }
 
 }
