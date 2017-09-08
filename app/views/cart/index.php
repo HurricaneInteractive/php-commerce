@@ -32,6 +32,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="col-sm-12">
+                <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
+            </div>
         </div>
     </div>
 
