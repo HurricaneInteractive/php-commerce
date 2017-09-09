@@ -3,6 +3,9 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
+                <h2>Chart</h2>
+            </div>
+            <div class="col-sm-12">
                 <table class="table table-striped">
                     <thead class="table-inverse">
                         <tr class="bg-primary">
@@ -32,9 +35,11 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-12">
-                <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
-            </div>
+            <?php if (count($data['cart']) > 0): ?>
+                <div class="col-sm-12">
+                    <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
