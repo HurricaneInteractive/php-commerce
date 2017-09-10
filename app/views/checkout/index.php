@@ -21,5 +21,18 @@
                 </thead>
             </table>
         </div>
+        <div class="col-sm-12">
+            <form action="/checkout/processPayment" method="POST" id="checkout_form">
+                <input name="card-number" placeholder="424242424242" value="424242424242" />
+                <input name="expiry-begin" value="9" />
+                <input name="expiry-end" value="18" />
+                <input name="cvc" value="314" />
+                <input type="submit" class="btn btn-primary" value="Buy" />
+            </form>
+        </div>
     </div>
 </div>
+
+<?php
+    require '../app/views/footer.php';
+?>
