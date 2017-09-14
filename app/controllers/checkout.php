@@ -4,21 +4,35 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-\Stripe\Stripe::setApiKey("pk_test_WIRYtSewtY7gFWIHZG7zNcXk");
+\Stripe\Stripe::setApiKey("sk_test_acwyr1hxM1YkzwEWToHTsmtV");
 
 class Checkout extends Controller
 {
     public function index()
     {
-        $this->view('checkout/index');
+        $cart = $GLOBALS['DB']->getCartItems();
+        
+        $this->view('checkout/index', [
+            'cart' => $cart
+        ]);
     }
 
     public function processPayment()
     {
         $customer = \Stripe\Customer::retrieve("cus_BN58HSrvDCU4sf");
-        echo json_encode(array(
-            'customer' => $customer
+        $token = \Stripe\Token::create(array(
+            "card" => array(
+                "number" => $_POST['card_number'],
+                "exp_month" => $_POST['expiry_month'],
+                "exp_year" => "20" . $_POST['expiry_year'],
+                "cvc" => $_POST['cvc']    
+            )
         ));
-        echo json_encode(array('customer' => $customer));
+        echo json_encode(array(
+            'customer' => $customer,
+            'post' => $_POST,
+            'token' => $token
+        ));
+        // echo json_encode(array('customer' => $customer));
     }
 }
