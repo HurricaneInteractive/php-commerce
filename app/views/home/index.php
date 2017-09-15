@@ -25,7 +25,8 @@
                                 <h2><?php echo $name; ?></h2>
                                 <p><?php echo $desc ?></p>
                                 <small style="display: block;">$<?php echo $cost ?></small>
-                                <a data-id="<?php echo $id ?>" href="/add-to-cart" class="btn btn-primary">Add to cart</a>
+                                <a data-id="<?php echo $id; ?>" href="/add-to-cart" class="btn btn-primary">Add to cart</a>
+                                <a href="/home/product?id=<?php echo $id; ?>" class="btn btn-link">View</a>
                             </div>
                         <?php
                     }
