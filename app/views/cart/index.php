@@ -9,10 +9,11 @@
                 <table class="table table-striped">
                     <thead class="table-inverse">
                         <tr class="bg-primary">
-                            <th>#</th>
+                            <th style="width: 50px;">#</th>
                             <th>Name</th>
                             <th>Price ($)</th>
                             <th>Quantity</th>
+                            <th style="width: 100px;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,7 @@
                                 <th><?php echo $name; ?></th>
                                 <th><?php echo $cost; ?></th>
                                 <th><?php echo $quantity; ?></th>
+                                <th><a href="/home/product/?id=<?php echo $product->get_id(); ?>">View</a></th>
                             </tr>
 
                         <?php $count++; endforeach; ?>
