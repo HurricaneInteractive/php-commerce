@@ -23,18 +23,30 @@ class DB extends mysqli
         }
     }
 
+    /**
+    *   Returns all products from the database
+    *   @return array
+    */
     public function getAllProducts() {
         $results = $this->query("SELECT * FROM products");
         $set = $this->formatResults($results);
         return $set;
     }
 
+    /**
+    *   Return a single product
+    *   @param int $id
+    *   @return object Product
+    */
     public function getProduct($id) {
         $results = $this->query("SELECT * FROM products WHERE id = " . $id . ";");
         $set = $this->formatResults($results);
-        return $set[0];
+        return new Product($set[0]);
     }
     
+    /**
+    *   Gets all the cart items
+    */
     public function getCartItems() {
         $allID = array();
         foreach($_SESSION['cart'] as $item) {
@@ -60,6 +72,11 @@ class DB extends mysqli
         return array();
     }
 
+    /**
+    *   Returns the database entries as an array
+    *   @param $results
+    *   @return array $set
+    */
     public function formatResults($results) {
         for ($set = array (); $row = $results->fetch_assoc(); $set[] = $row);
         $results->free();
