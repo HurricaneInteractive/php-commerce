@@ -16,7 +16,7 @@
             <table class="table table-striped">
                 <thead class="table-inverse">
                     <tr class="bg-primary">
-                        <th>#</th>
+                        <th style="width: 50px;">#</th>
                         <th>Name</th>
                         <th>Price ($)</th>
                         <th style="width: 190px;">Total</th>

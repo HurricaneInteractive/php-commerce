@@ -2,9 +2,10 @@
         <script src="https://js.stripe.com/v3/"></script>
         <script>
             $ = jQuery.noConflict();
-            $('.product a').on('click', function(e) {
+            $('.product a.btn-primary').on('click', function(e) {
                 e.preventDefault();
                 var id = $(this).attr('data-id');
+                var title = $(this).parent().find('h2').text();
                 $.ajax({
                     url: '/cart/add',
                     method: 'post',
@@ -16,7 +17,7 @@
                         console.log(response);
                         var sess = response.session;
                         $('#cart-count').text(sess);
-                        var successMsg = '<div class="alert alert-success" role="alert">Item was added to the cart! <a href="/cart">View cart</a></div>';
+                        var successMsg = '<div class="alert alert-success" role="alert">' + title + ' was added to the cart! <a href="/cart">View cart</a></div>';
                         $('#messages').html(successMsg);
                     },
                     error: function(error) {
@@ -25,33 +26,6 @@
                 });
             });
         </script>
-        <!-- <script>
-            $('#checkout_form').on('submit', function(e) {
-                e.preventDefault();
-                // $(this).text('Processing...');
-                var elems = document.getElementById('checkout_form');
-                var inputs = elems.elements;
-
-                $.ajax({
-                    url: '/checkout/processPayment',
-                    method: 'post',
-                    data: {
-                        card_number: inputs.card_number.value,
-                        cvc: inputs.cvc.value,
-                        expiry_month: inputs.expiry_month.value,
-                        expiry_year: inputs.expiry_year.value
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log(response);
-                        // $(this).text('Buy');
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                });
-            });
-        </script> -->
         <script>
             var stripe = Stripe('pk_test_WIRYtSewtY7gFWIHZG7zNcXk');
             var elements = stripe.elements();
