@@ -16,7 +16,7 @@ class Cart extends Controller
     }
 
     public function add()
-    {   
+    {
         $id = $_POST['id'];
         $key = array_search($id, array_column($_SESSION['cart'], 'id'));
         

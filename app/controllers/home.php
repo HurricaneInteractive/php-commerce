@@ -21,4 +21,15 @@ class Home extends Controller
             'products' => $allProducts
         ]);
     }
+
+    public function product()
+    {
+        $id = $_GET['id'];
+        mysql_real_escape_string($id);
+        $product = $GLOBALS['DB']->getProduct(intval($id));
+
+        $this->view('home/product', [
+            'product' => $product
+        ]);
+    }
 }
