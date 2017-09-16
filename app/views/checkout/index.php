@@ -7,7 +7,7 @@
     $totalCost = NULL;
 ?>
 
-<div class="container mt-5">
+<div class="container mt-5 checkout">
     <div class="row">
         <div class="col-sm-12">
             <h2>Checkout</h2>

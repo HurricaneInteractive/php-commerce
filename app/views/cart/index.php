@@ -3,7 +3,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm-12">
-                <h2>Chart</h2>
+                <h2>Cart</h2>
             </div>
             <div class="col-sm-12">
                 <table class="table table-striped">

@@ -37,6 +37,9 @@
                                 <span id="cart-count" class="badge badge-pill badge-primary"><?php echo count($_SESSION['cart']); ?></span>
                             </a>
                         </li>
+                        <li class="nav-items">
+                            <a href="/user/login" class="nav-link">Login</a>
+                        </li>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
     width: 100%;
   } */
   
-  form {
+  .checkout form {
     width: 480px;
     margin: 20px auto;
   }
@@ -69,7 +69,7 @@
   .field::-moz-placeholder { color: #CFD7E0; }
   .field:-ms-input-placeholder { color: #CFD7E0; }
   
-  button {
+  .checkout button {
     float: left;
     display: block;
     background: #666EE8;
@@ -87,11 +87,11 @@
     outline: none;
   }
   
-  button:focus {
+  .checkout button:focus {
     background: #555ABF;
   }
   
-  button:active {
+  .checkout button:active {
     background: #43458B;
   }
   
