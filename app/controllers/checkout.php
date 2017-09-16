@@ -13,7 +13,8 @@ class Checkout extends Controller
         $cart = $GLOBALS['DB']->getCartItems();
         
         $this->view('checkout/index', [
-            'cart' => $cart
+            'cart' => $cart,
+            'scripts' => ['stripe']
         ]);
     }
 
@@ -25,7 +26,7 @@ class Checkout extends Controller
                 "number" => $_POST['card_number'],
                 "exp_month" => $_POST['expiry_month'],
                 "exp_year" => "20" . $_POST['expiry_year'],
-                "cvc" => $_POST['cvc']    
+                "cvc" => $_POST['cvc']
             )
         ));
         echo json_encode(array(
